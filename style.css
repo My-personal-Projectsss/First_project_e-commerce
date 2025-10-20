@@ -255,7 +255,7 @@ main {
     color: #403ad9;
 }
 
-#featured-products a {
+#featured-products a.show {
   display: inline-block;
   background-color: #403ad9;
   color: #fff;
@@ -265,6 +265,19 @@ main {
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s;
+  animation: fadeSlideIn 1.2s ease-out forwards;
+  opacity: 0; /* hidden before animation */
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #featured-products a:hover {
@@ -569,4 +582,14 @@ footer {
   text-align: center;
 }
 
+.fade-slide {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s ease-out;
+}
+
+.fade-slide.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 

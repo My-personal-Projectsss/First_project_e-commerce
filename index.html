@@ -36,20 +36,20 @@
 <main>
   <!-- HERO SECTION -->
   <section id="home">
-    <div>
+    <div class="fade-slide">
     <h1>Welcome to TRIPLE H <span>KIDDIES</span> and LADIES COLLECTIONS</h1>
     <h3>Tiny <span>Treasures</span>, Big Smiles</h3>
     <p>Everything you and your baby needs, all in one place. Supporting every stage of your child’s journey with safe, affordable, and trusted products.</p>
     <a href="#featured-products">Shop Now</a>
     </div>
-    <img src="./img/hero-image.jpg" alt="hero-photo">
+    <img src="./img/hero-image.jpg" alt="hero-photo" class="fade-slide">
   </section>
 
   <!-- PRODUCTS PREVIEW SECTION -->
   <section id="featured-products">
-    <h2>Our <span>Featured</span> Products</h2>
-    <p>Parents’ favorites are here! Explore high-quality baby products built for everyday comfort and long-lasting value.</p>
-    <div class="products">
+    <h2 class="fade-slide">Our <span>Featured</span> Products</h2>
+    <p class="fade-slide">Parents’ favorites are here! Explore high-quality baby products built for everyday comfort and long-lasting value.</p>
+    <div class="products fade-slide">
       <div class="product">
         <div class="product-img">
         <img src="./img/baby-toy.jpg" alt="Baby Toy">
@@ -75,11 +75,11 @@
         <h3>baby cribs</h3>
       </div>
     </div>
-    <a href="products.html">View More Products</a>
+    <a href="products.html" class="fade-slide">View More Products</a>
   </section>
 
   <section class="product-highlight">
-  <div class="product-text">
+  <div class="product-text fade-slide">
     <h2>Explore Our wide Range Of <span>Baby Products</span></h2>
     <p>
       Give your little ones the best start with products that balance safety, comfort, and playful design. 
@@ -92,14 +92,14 @@
     <a href="products.html" class="btn">Explore Products</a>
   </div>
 
-  <div class="product-image">
+  <div class="product-image fade-slide">
     <img src="./img/happy-family.jpeg" alt="Happy family with baby">
   </div>
 </section>
 
 
   <!-- ABOUT SECTION -->
-  <section id="about">
+  <section id="about" class="fade-slide">
     <h2>Why Parents <span>Trust</span> Us</h2>
     <p>
     At <strong>TRIPLE H KIDDIES and LADIES COLLECTIONS</strong>, we are passionate about offering safe, affordable, and stylish products for babies, kids, and young ladies. 
@@ -119,7 +119,7 @@
 
   <!-- CONTACT SECTION -->
   <section id="contact">
-    <div class="location">
+    <div class="location fade-slide">
      <img src="./img/logo-image.jpg" alt="logo">
      <p>Based in Ughelli, Delta State, Nigeria, we are committed to offering premium baby products that keep your little ones safe, comfortable, and happy. Discover the perfect blend of quality and care designed for your family’s needs.</p>
      <p>No38 Ekredjebor road Ughelli Delta state.</p>
@@ -128,14 +128,14 @@
      <a href=""><i class="fa-brands fa-whatsapp"></i></a>
      <a href=""><i class="fa-brands fa-tiktok"></i></a>
     </div>
-    <div class="footer-products">
+    <div class="footer-products fade-slide">
      <h2>products</h2>
      <p>baby cribs</p>
      <p>toys</p>
      <p>clothes</p>
      <p>water & feeding bottles</p>
     </div>
-    <div class="footer-contact">
+    <div class="footer-contact fade-slide">
     <h2>Get In Touch</h2>
     <a href=""></a>
     <a href="">+234 704 207 7166</a>
@@ -201,6 +201,21 @@ document.addEventListener('click', (e) => {
   }
 });
 
+
+  const faders = document.querySelectorAll('.fade-slide');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        // Reset when leaving viewport
+        entry.target.classList.remove('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  faders.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
